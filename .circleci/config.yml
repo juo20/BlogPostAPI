@@ -24,6 +24,20 @@ jobs:
     # Change the version below to your required version of python
     docker:
       - image: cimg/python:3.10.5
+        environment:
+          POSTGRES_USER: testuser
+          POSTGRES_DB: circle-test_test
+          DATABASE_PASSWORD: password123
+          DATABASE_HOSTNAME: localhost
+          DATABASE_PORT: 5432
+          SECRET_KEY: 09d25e094faa6ca2302c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7
+          ALGORITHM: HS256
+          ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      - image: cimg/postgres:14.0
+        environment:
+          POSTGRES_USER: testuser
+          POSTGRES_DB: circle-test_test
+          DATABASE_PASSWORD: password123
     # Checkout the code as the first step. This is a dedicated CircleCI step.
     # The python orb's install-packages step will install the dependencies from a Pipfile via Pipenv by default.
     # Here we're making sure we use just use the system-wide pip. By default it uses the project root's requirements.txt.
