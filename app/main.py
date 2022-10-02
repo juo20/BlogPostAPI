@@ -1,15 +1,14 @@
 from fastapi import FastAPI
-# from . import models
-# from .database import engine
+from . import models
+from .database import engine
 from .routers import post, user, auth, vote
 from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 
-# This tells sqlalchemy to create all tables listed in models.py
-# which is no longer needed as alembic is doing the db migrations
-# models.Base.metadata.create_all(bind=engine)
+
+models.Base.metadata.create_all(bind=engine)
 
 
 app.include_router(post.router)
