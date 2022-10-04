@@ -22,7 +22,7 @@ def test_create_user(client):
 
 def test_login_user(client, test_user):
     response = client.post(
-        "/login/",
+        "/login",
         data={
             "username": test_user['email'],
             "password": test_user['password']
