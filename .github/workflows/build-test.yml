@@ -17,6 +17,7 @@ jobs:
         image: postgres
         env:
           DATABASE_URL: ${{secrets.DATABASE_URL}}
+          DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
           # Set health checks to wait until postgres has started
         ports:
           - 5432:5432
