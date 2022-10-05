@@ -6,8 +6,12 @@ class Settings(BaseSettings):
     algorithm: str
     access_token_expire_minutes: int
     database_url: str
+    database_username: str
+    database_password: str
+    database_hostname: str
+    database_port: str
 
-    # class Config:
+        # class Config:
     #     env_file = ".env"
 
 
