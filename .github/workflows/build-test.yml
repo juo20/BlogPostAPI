@@ -10,7 +10,7 @@ jobs:
     env:
       DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
       DATABASE_NAME: ${{secrets.POSTGRES_DB}}
-      DATABASE_USERNAME: ${{secrets.POSTGRES_USERNAME}}
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
       DATABASE_PORT: ${{secrets.DATABASE_PORT}}
       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
       DATABASE_URL: ${{secrets.DATABASE_URL}}
@@ -23,7 +23,7 @@ jobs:
         env:
           POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
           POSTGRES_DB: ${{secrets.POSTGRES_DB}}
-          POSTGRES_USER: ${{secrets.POSTGRES_USERNAME}}
+          POSTGRES_USER: ${{secrets.DATABASE_USERNAME}}
           POSTGRES_PORT: ${{secrets.DATABASE_PORT}}
           POSTGRES_HOST: ${{secrets.DATABASE_HOSTNAME}}
         ports:
