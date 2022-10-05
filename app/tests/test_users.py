@@ -2,7 +2,6 @@ from .. import schemas
 from jose import jwt
 from ..config import settings
 import pytest
-from ..oauth2 import create_access_token
 
 
 def test_create_user(client):
@@ -40,7 +39,7 @@ def test_login_user(client, test_user):
 ])
 def test_failed_login(client, test_user, email, password, status_code):
     response = client.post(
-        "/login/",
+        "/login",
         data={
             "username": email,
             "password": password
@@ -56,7 +55,7 @@ def test_token(client, test_user):
     ALGORITHM = f"{settings.algorithm}"
 
     response = client.post(
-        "/login/",
+        "/login",
         data={
             "username": test_user['email'],
             "password": test_user['password']
