@@ -9,8 +9,8 @@ jobs:
       name: blogpostapi
     env:
       DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      POSTGRES_DB: ${{secrets.POSTGRES_DB}}
-      POSTGRES_USERNAME: ${{secrets.POSTGRES_USERNAME}}
+      DATABASE_NAME: ${{secrets.POSTGRES_DB}}
+      DATABASE_USERNAME: ${{secrets.POSTGRES_USERNAME}}
       DATABASE_PORT: ${{secrets.DATABASE_PORT}}
       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
       DATABASE_URL: ${{secrets.DATABASE_URL}}
@@ -21,12 +21,11 @@ jobs:
       postgres:
         image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
         env:
-          DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+          POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
           POSTGRES_DB: ${{secrets.POSTGRES_DB}}
-          POSTGRES_USERNAME: ${{secrets.POSTGRES_USERNAME}}
-          DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-          DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
-          DATABASE_URL: ${{secrets.DATABASE_URL}}
+          POSTGRES_USER: ${{secrets.POSTGRES_USERNAME}}
+          POSTGRES_PORT: ${{secrets.DATABASE_PORT}}
+          POSTGRES_HOST: ${{secrets.DATABASE_HOSTNAME}}
         ports:
           - 5432:5432
         options: >-
