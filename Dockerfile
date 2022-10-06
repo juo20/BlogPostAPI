@@ -20,4 +20,6 @@ ARG PORT
 
 ENV PORT ${PORT}
 
-#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+EXPOSE $PORT
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
