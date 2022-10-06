@@ -18,4 +18,6 @@ ARG ALGORITHM
 ARG ACCESS_TOKEN_EXPIRE_MINUTES
 ARG PORT
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0"]
+ENV PORT ${PORT}
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
